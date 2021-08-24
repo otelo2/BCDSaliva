@@ -1,0 +1,72 @@
+from webpage.models import UserFile
+from django.views.generic.edit import CreateView
+
+from .models import UserFile
+
+members = [
+    {
+        "name": "Mireya Paredes",
+        "image": "mireya-paredes.jpg",
+        "bio": """La Dra. Mireya Paredes hizo su doctorado en Ciencias de la Computación en la Universidad
+                        de Manchester en Reino Unido. Actualmente es profesora en la Universidad de las Américas
+                        Puebla y pertenece al Sistema Nacional de Investigadores nivel Candidato. Sus líneas de
+                        investigación son programación paralela, algoritmos de grafos y cómputo cuántico. Sus intereses son
+                        proyectos multidisciplinarios de tecnología que lleguen a tener un impacto social en la sociedad
+                        mexicana.""",
+    },
+    {
+        "name": "José Correa",
+        "image": "jose-correa.jpg",
+        "bio": """Licenciatura en Medicina en la Escuela Superior de Medicina (ESM) del IPN en el 2002.
+                        Maestría en Ciencias en Farmacología en la ESM del IPN en 2004. Doctorado en
+                        Investigación en Medicina en la ESM del IPN, siendo premio como mejor tesis del IPN en
+                        2006. Maestría en Bioinformática, modalidad “on line” en la Universidad Internacional de
+                        Andalucia, España, 2013. Actualmente es Profesor-Investigador Titular C de la ESM del
+                        IPN. Pertenece al Registro CONACYT de Evaluadores Acreditados. Es miembro del sistema
+                        Nacional de Investigadores (SNI) desde 2007 como candidato, actualmente es nivel 3.
+                        Tiene 3 patentes aceptadas, 2 patentes con examen de forma aceptado en el IMPI y 4 están
+                        en evaluación. Ha realizado 3 diplomados. Realizó también una estancia como Profesor
+                        Invitado en la Universidad de Evry Francia en el 2013. Tiene 182 artículos científicos
+                        en revistas internacionales (JCR) y 6 no JCR, los cuales han generado más de 2002 citas
+                        en google scholar con un Reseachgate 43.05. Ha publicado 11 capítulos de libros
+                        internacionales de editoriales de prestigio. Varios trabajos en congresos nacionales e
+                        internacionales. Ha supervisado 4 estancias posdoctorales y 60 tesis (12 de doctorado,
+                        31 de Maestría y 25 de licenciatura y 4 de especialidad médica). Ha impartido más de 40
+                        cursos de posgrado y de pregrado. Ha conseguido más de 10 proyectos con financiamiento
+                        por CONACYT, ICyTDF, CYTED, 7 como responsable técnico, tanto nacionales como
+                        internacionales. En el 2010 fue galardonado con el premio: Miguel Alemán en salud. Ha
+                        sido asesor de alumnos que han recibido el premio como mejor tesis en el IPN. En el 2014
+                        el recibió el premio a la investigación en el IPN. En el 2018 fue Presea Lázaro Cárdenas
+                        en Modalidad de Profesor-Investigador, premio que entrega el Presidente de la República
+                        Mexicana. En el 2019 obtuvo el 3er lugar de CANIFARMA, CATEGORÍA DE INVESTIGACIÓN
+                        TECNOLÓGICA.""",
+    },
+    {
+        "name": "Chema",
+        "image": "chema.jpg",
+        "bio": """Chema obtuvo su PhD en la Universidad de Barcelona estudiando el desarrollo embrionario
+                        de las planarias (gusanos planos). Tras su doctorado, hizo una estancia postdoctoral en
+                        Bergen, Noruega, bajo la dirección de Prof Andreas Hejnol en el Instituto Sars para la
+                        Biología Molecular Marina, donde estudio una gran variedad de animales marinos
+                        invertebrados. En particular, Chema se centro en el estudio de la evolución del sistema
+                        digestivo y la gastrulacion en animals y en el origen del sistema nervioso. En 2018,
+                        empezó una posición como investigador independiente en la Universidad de Londres Queen
+                        Mary. En 2019 recibió la prestigiosa grant ERC Starting Grant para explorar la evolución
+                        y control molecular del desarrollo espiral.""",
+    },
+]
+
+# Create your views here.
+
+
+class SiteView(CreateView):
+    template_name = "webpage/index.html"
+    model = UserFile
+    fields = "__all__"
+    success_url = "/BCDSaliva"
+
+    # Regresa contexto para renderizar en la pagina, en este caso el diccionario de miembros
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["all_members"] = members
+        return context

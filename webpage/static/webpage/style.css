@@ -1,0 +1,181 @@
+/*------Header------*/
+
+.header,
+.main,
+footer {
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 15px;
+    font-size: larger;
+    background-color: rgb(48, 131, 187);
+    text-align: center;
+}
+
+/*------Tabs-------*/
+.tab-options {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab-options button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab-options button:hover {
+    background-color: #ddd;
+}
+
+.tab-options button.active {
+    background-color: #ccc;
+}
+
+/*-----Content-----*/
+.tab-content {
+    display: none;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-top: none;
+    transition: 0.3s;
+}
+
+.tab-content p {
+    font-weight: 200;
+}
+
+/*------Footer------*/
+footer {
+    width: 100vw;
+    margin-top: 20px;
+    color: #fff;
+    padding: 20px 0;
+    background-color: rgb(48, 131, 187);
+}
+
+nav {
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+footer span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Bio-Slider */
+.slideshow-container {
+    position: relative;
+}
+
+.slide {
+    display: flex;
+}
+
+.bio-img-container {
+    flex: 1;
+    width: 50%;
+}
+
+.bio-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.bio-text-container {
+    padding: 1rem;
+    flex: 1;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 0.7s;
+    animation-name: fade;
+    animation-duration: 0.7s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .7
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .7
+    }
+
+    to {
+        opacity: 1
+    }
+}

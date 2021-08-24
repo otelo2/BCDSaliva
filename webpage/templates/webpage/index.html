@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'webpage/style.css' %}">
+{% endblock css_files %}
+
+{% block page_title %}BCDSaliva{% endblock page_title %}
+
+{% block content %}
+<header class="header">
+    <a href="">HEADER</a>
+</header>
+<div class="main">
+    <div class="tab-options">
+        <button class="tablinks active" onclick="openContent(event, 'Home')">Home</button>
+        <button class="tablinks" onclick="openContent(event, 'Biomarker')">Biomarker Comparison</button>
+        <button class="tablinks" onclick="openContent(event, 'About')">About Us</button>
+    </div>
+    {% comment %} Home tab {% endcomment %}
+    <div class="tab-content" id="Home" style="display: block;">
+        <h2>Breast Cancer Detection</h2>
+        <p>This project aims to develop a non-invasive, cost-effective, lightweight method for breast cancer
+            biomarker identification employing saliva samples that can be implemented in rural and isolated
+            communities, where access to diagnostic infrastructure might be difficult (~20% of the Mexican and
+            UK population).</p>
+    </div>
+
+    {% comment %} Biomarker tab {% endcomment %}
+    <div class="tab-content" id="Biomarker">
+        <h2>Biomarker</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ratione, nobis aliquam impedit
+            voluptatum laborum ipsa reprehenderit aliquid architecto fugiat praesentium. Facilis ipsam iure
+            officiis. Facilis iusto suscipit reiciendis nesciunt.</p>
+
+        <form action="/BCDSaliva/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button>Upload</button>
+        </form>
+    </div>
+
+    {% comment %} About tab {% endcomment %}
+    <div class="tab-content" id="About">
+        <h2>About Us</h2>
+        <div class="slideshow-container">
+            {% comment %} Crea el slider con el diccionario que se pasa de views.py {% endcomment %}
+            {% for member in all_members %}
+            <div class="slide fade">
+                <div class="bio-img-container">
+                    <img src="{% static 'webpage/images/'|add:member.image %}" alt="{{member.name}}">
+                </div>
+                <div class="bio-text-container">
+                    <p>
+                        {{member.bio}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<footer class="footer">
+    <nav>
+        <a href="https://www.udlap.mx/web/" target="_blank" rel="noopener noreferrer">UDLAP</a> |
+        <a href="https://www.ipn.mx/" target="_blank" rel="noopener noreferrer">IPN</a> |
+        <a href="https://www.qmul.ac.uk/" target="_blank" rel="noopener noreferrer">Queen Mary</a>
+    </nav>
+    <span>Breast Cancer Detection through Saliva</span>
+</footer>
+<script src="{% static 'webpage/app.js' %}"></script>
+{% endblock content %}
