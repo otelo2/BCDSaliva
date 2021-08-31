@@ -15,6 +15,7 @@
     <div class="tab-options">
         <button class="tablinks active" onclick="openContent(event, 'Home')">Home</button>
         <button class="tablinks" onclick="openContent(event, 'Biomarker')">Biomarker Comparison</button>
+        <button class="tablinks" onclick="openContent(event, 'Patients')">Patients</button>
         <button class="tablinks" onclick="openContent(event, 'About')">About Us</button>
     </div>
     {% comment %} Home tab {% endcomment %}
@@ -38,6 +39,17 @@
             {{ form }}
             <button>Upload</button>
         </form>
+    </div>
+
+    {% comment %} Patients tab {% endcomment %}
+    <div class="tab-content" id="Patients">
+        <h2>Patients</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ratione, nobis aliquam impedit
+            voluptatum laborum ipsa reprehenderit aliquid architecto fugiat praesentium. Facilis ipsam iure
+            officiis. Facilis iusto suscipit reiciendis nesciunt.</p>
+        <p>Login area</p>
+        <p>To upload your biomarkers please log in</p>
+
     </div>
 
     {% comment %} About tab {% endcomment %}
