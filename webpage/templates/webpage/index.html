@@ -8,6 +8,7 @@
 {% block page_title %}BCDSaliva{% endblock page_title %}
 
 {% block content %}
+{% comment "TODO dont put css inside the html ffs" %}{% endcomment %}
 <header class="header">
     <a href="">HEADER</a>
 </header>
@@ -17,6 +18,9 @@
         <button class="tablinks" onclick="openContent(event, 'Biomarker')">Biomarker Comparison</button>
         <button class="tablinks" onclick="openContent(event, 'Patients')">Patients</button>
         <button class="tablinks" onclick="openContent(event, 'About')">About Us</button>
+        {% comment %} Move the styles to the CSS file, this is terrible {% endcomment %}
+        <button class="tablinks" style="float: right; background-color: rgb(48, 131, 187)" onclick="openContent(event, 'Signup')">Sign Up</button>
+        <button class="tablinks" style="float: right" onclick="openContent(event, 'Login')">Log In</button>
     </div>
     {% comment %} Home tab {% endcomment %}
     <div class="tab-content" id="Home" style="display: block;">
@@ -82,6 +86,62 @@
 
 
     </div>
+
+    {% comment "" %} Login Area {% endcomment %}
+    <div class="tab-content" id="Login">
+        <h2>Log In</h2>
+        <p>If you already have an account, please log in to upload your biomarker file and access other data.</p>
+        {% comment "this has to be left aligned but in the center" %}{% endcomment %}
+        <div style="text-align: center">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <br>
+            <br>
+            <a onclick="openContent(event, 'Signup')">Don't have an account? Sign up.</a>
+            <button class="tablinks" onclick="openContent(event, 'Login')">Log In</button>
+        </div>
+    </div>
+
+    {% comment "" %} Sign Up Area {% endcomment %}
+    <div class="tab-content" id="Signup">
+        <h2>Sign Up</h2>
+        <p>Sign up to upload your biomarker file and access other features</p>
+        <div style="text-align: center">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="surname1">Surname 1: </label>
+            <input type="text" name="surname1" id="surname1">
+            <br>
+            <label for="surname2">Surname 2*: </label>
+            <input type="text" name="surname2" id="surname2">
+            <br>
+            <label for="age">Age: </label>
+            <input type="number" name="age" id="age">
+            <br>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender" id="gender" value="Male"> Male
+            <input type="radio" name="gender" id="gender" value="Female"> Female
+            <input type="radio" name="gender" id="gender" value="Other"> Other
+            <br>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+            <br>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+            <br>
+            <label for="passwordconf">Password: </label>
+            <input type="passwordconf" name="passwordconf" id="passwordconf">
+            <br>
+            <p>*Optional.</p>
+            <button class="tablinks" style="background-color: rgb(48, 131, 187)" onclick="openContent(event, 'Signup')">Sign Up</button>
+
+        </div>
+    </div>
+
 </div>
 <footer class="footer">
     <nav>
