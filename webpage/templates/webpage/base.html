@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'webpage/style.css' %}">
+    {% block css_files %}
+    {% endblock css_files %}
+</head>
+
+<body>
+    <header class="header">
+        <a href="{% url 'home' %}">Breast Cancer Detection through Saliva</a>
+    </header>
+
+    <div class="main">
+        <div class="tab-options">
+            <button class="tablinks active" onclick="window.location.href='{% url 'home' %}'">Home</button>
+            <button class="tablinks" onclick="window.location.href='{% url 'biomarker-comparison' %}'">Biomarker Comparison</button>
+            <button class="tablinks" onclick="window.location.href='{% url 'patients' %}'">Patients</button>
+            <button class="tablinks" onclick="window.location.href='{% url 'about-us' %}'">About Us</button>
+            {% comment %} Move the styles to the CSS file, this is terrible {% endcomment %}
+            <button class="tablinks" style="float: right; background-color: rgb(48, 131, 187)" onclick="window.location.href='{% url 'signup' %}'">Sign Up</button>
+            <button class="tablinks" style="float: right" onclick="window.location.href='{% url 'login' %}'">Log In</button>
+        </div>
+
+        {% block content %}
+        {% endblock content %}
+        
+    </div>
+    
+    <footer class="footer">
+        <nav>
+            <a href="https://www.udlap.mx/web/" target="_blank" rel="noopener noreferrer">UDLAP</a> |
+            <a href="https://www.ipn.mx/" target="_blank" rel="noopener noreferrer">IPN</a> |
+            <a href="https://www.qmul.ac.uk/" target="_blank" rel="noopener noreferrer">Queen Mary</a>
+        </nav>
+        <span>Breast Cancer Detection through Saliva</span>
+    </footer>
+
+    <script src="{% static 'webpage/app.js' %}"></script>
+</body>
+</html>

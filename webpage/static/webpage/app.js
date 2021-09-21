@@ -29,6 +29,7 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
+/*
 function openContent(evt, contentName) {
     let tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -47,4 +48,4 @@ function openContent(evt, contentName) {
     // Displays the selected content
     document.getElementById(contentName).style.display = "block";
     evt.currentTarget.className += " active";
-}
+} */

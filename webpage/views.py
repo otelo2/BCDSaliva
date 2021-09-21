@@ -1,5 +1,6 @@
 from webpage.models import UserFile
 from django.views.generic.edit import CreateView
+from django.views.generic.base import TemplateView
 
 from .models import UserFile
 
@@ -65,8 +66,29 @@ class SiteView(CreateView):
     fields = "__all__"
     success_url = "/BCDSaliva"
 
+    
+
+class IndexView(TemplateView):
+    template_name = "webpage/index.html"
+    
+class BiomarkerComparisonView(TemplateView):
+    template_name = "webpage/biomarker_comparison.html"
+    
+class PatientsView(TemplateView):
+    template_name = "webpage/patients.html"
+    
+class AboutUsView(TemplateView):
+    template_name = "webpage/about_us.html"
+    
     # Regresa contexto para renderizar en la pagina, en este caso el diccionario de miembros
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["all_members"] = members
         return context
+    
+class LoginView(TemplateView):
+    template_name = "webpage/login.html"
+    
+class SignupView(TemplateView):
+    template_name = "webpage/signup.html"
+    

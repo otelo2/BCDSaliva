@@ -1,0 +1,42 @@
+{% extends 'webpage/base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+    {% comment "" %} Sign Up Area {% endcomment %}
+    <div class="tab-content" id="Signup" style="display: block;">
+        <h2>Sign Up</h2>
+        <p>Sign up to upload your biomarker file and access other features</p>
+        <div style="text-align: center">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="surname1">Surname 1: </label>
+            <input type="text" name="surname1" id="surname1">
+            <br>
+            <label for="surname2">Surname 2*: </label>
+            <input type="text" name="surname2" id="surname2">
+            <br>
+            <label for="age">Age: </label>
+            <input type="number" name="age" id="age">
+            <br>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender" id="gender" value="Male"> Male
+            <input type="radio" name="gender" id="gender" value="Female"> Female
+            <input type="radio" name="gender" id="gender" value="Other"> Other
+            <br>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+            <br>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+            <br>
+            <label for="passwordconf">Password: </label>
+            <input type="passwordconf" name="passwordconf" id="passwordconf">
+            <br>
+            <p>*Optional.</p>
+            <button class="tablinks" style="background-color: rgb(48, 131, 187)" onclick="openContent(event, 'Signup')">Sign Up</button>
+
+        </div>
+    </div>
+{% endblock content %}

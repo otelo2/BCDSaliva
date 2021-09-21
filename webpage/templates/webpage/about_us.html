@@ -1,0 +1,35 @@
+{% extends 'webpage/base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block content %}
+    {% comment %} About tab {% endcomment %}
+    <div class="tab-content" id="About" style="display: block;">
+        <h2>About Us</h2>
+        <div class="slideshow-container">
+            {% comment %} Crea el slider con el diccionario que se pasa de views.py {% endcomment %}
+            {% for member in all_members %}
+            <div class="slide fade">
+                <div class="bio-img-container">
+                    <img src="{% static 'webpage/images/'|add:member.image %}" alt="{{member.name}}">
+                </div>
+                <div class="bio-text-container">
+                    <p>
+                        {{member.bio}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
