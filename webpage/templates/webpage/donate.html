@@ -1,0 +1,52 @@
+{% extends 'webpage/base.html' %}
+
+{% block title %}Donate{% endblock title %}
+
+{% block content %}
+    {% comment %} Home tab {% endcomment %}
+    <div class="tab-content" id="Donate" style="display: block;">
+        <h1>Donate</h1>
+        <h2>You can help further developments on breast cancer detections via saliva by your generous donation</h2>
+        <p>Donate now</p>
+
+        <form action="">
+            <label for="onetime">I would like to make a</label>
+            <input type="radio" name="onetime" id="onetime" value="OneTime"> One-time donation
+            <input type="radio" name="monthly" id="monthly" value="Monthly"> Monthly donation
+
+            <label for="onetime">Of the amount</label>
+            <input type="radio" name="10" id="10" value="10"> $10
+            <input type="radio" name="20" id="20" value="20"> $20
+            <input type="radio" name="50" id="50" value="50"> $50
+            <input type="radio" name="100" id="100" value="100"> $100
+
+            <label for="onetime">Donation type</label>
+            <input type="radio" name="personal" id="personal" value="Personal"> Personal donation
+            <input type="radio" name="company" id="company" value="Company"> Company donation
+
+            <p>Your details</p>
+            <label for="email">Email</label>
+            <input type="text">
+            <label for="email">First Name</label>
+            <input type="text">
+            <label for="email">Last name</label>
+            <input type="text">
+
+            <p>Your Home Address</p>
+            <label for="email">Address Line 1</label>
+            <input type="text">
+            <label for="email">Address Line 2</label>
+            <input type="text">
+            <label for="">Town/city</label>
+            <input type="text">
+            <label for="email">Contry/state/region</label>
+            <input type="text">
+            <label for="email">Post code</label>
+            <input type="text">
+            <label for="email">Country or region</label>
+            <input type="text">
+
+            <input type="button" value="Proceed to payment">
+        </form>
+    </div>
+{% endblock content %}
