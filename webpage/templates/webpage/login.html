@@ -4,20 +4,19 @@
 
 {% block content %}
     {% comment "" %} Login Area {% endcomment %}
-    <div class="tab-content" id="Login">
-        <h2>Log In</h2>
-        <p>If you already have an account, please log in to upload your biomarker file and access other data.</p>
-        {% comment "this has to be left aligned but in the center" %}{% endcomment %}
-        <div style="text-align: center">
+    <div class="login-box" id="Login">
+        <h1>Log In</h1>
+        <h4>If you already have an account, please log in to upload your biomarker file and access other data.</h4>
+
+        <form action="">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
-            <br>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required>
-            <br>
-            <br>
-            <a onclick="openContent(event, 'Signup')">Don't have an account? Sign up.</a>
-            <button class="tablinks" onclick="openContent(event, 'Login')">Log In</button>
-        </div>
+            <input type="button" value="Log In">
+        </form>
+        
     </div>
+
+    <p class="login-p">Don't have an account? <a href="{% url 'signup' %}">Sign up here.</a></p>
 {% endblock content %}

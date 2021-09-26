@@ -92,3 +92,7 @@ class LoginView(TemplateView):
 class SignupView(TemplateView):
     template_name = "webpage/signup.html"
     
+
+class DonateView(TemplateView):
+    template_name = "webpage/donate.html"
+    
