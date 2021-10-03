@@ -20,8 +20,8 @@
                 <input type="text" name="surname1" id="surname1">
                 <label for="surname2">Surname 2 (Optional): </label>
                 <input type="text" name="surname2" id="surname2">
-                <label for="age">Age: </label>
-                <input type="number" name="age" id="age">
+                <label for="dob">Date of birth </label>
+                <input type="date" name="dob" id="dob">
                 <label for="gender">Gender: </label>
                 <input type="radio" name="gender" id="gender" value="Male"> Male
                 <input type="radio" name="gender" id="gender" value="Female"> Female
@@ -32,10 +32,11 @@
                 <input type="password" name="password" id="password">
                 <label for="passwordconf">Confirm Password: </label>
                 <input type="password" name="passwordconf" id="passwordconf">
-                <p>By checking the box you acknowledge that you have reviewed and agree to the <br>
+                
+                <input type="checkbox" name="checkbox" id="checkbox">
+                <label class="checkboxLabel" for="terms">By checking the box you acknowledge that you have reviewed and agree to the <br>
                     <a href=" {% url 'privacy-policy' %} ">Terms of Service</a> and <a href=" {% url 'privacy-policy' %} ">Privacy Policy</a>.
-                </p>
-                <input type="checkbox" name="terms" id="terms">
+                </label>
 
                 <input type="button" value="Sign Up">
             </form>

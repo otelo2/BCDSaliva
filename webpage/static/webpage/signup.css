@@ -10,7 +10,6 @@
     border-radius: 0rem;
     border: 1px solid #ccc;
     border-top: none;
-
 }
 
 .signup-box p{
@@ -22,4 +21,11 @@
 
 .signup-box p a{
     color: #3083bb;
+}
+
+.checkboxLabel{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0.5rem;
 }
