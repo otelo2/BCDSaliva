@@ -1,6 +1,12 @@
 {% extends 'webpage/base.html' %}
+{% load static %}
 
 {% block title %}Sign Up{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'webpage/style.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/signup.css' %}">
+{% endblock css_files %}
 
 {% block content %}
     {% comment "" %} Sign Up Area {% endcomment %}
@@ -12,7 +18,7 @@
                 <input type="text" name="name" id="name">
                 <label for="surname1">Surname 1: </label>
                 <input type="text" name="surname1" id="surname1">
-                <label for="surname2">Surname 2*: </label>
+                <label for="surname2">Surname 2 (Optional): </label>
                 <input type="text" name="surname2" id="surname2">
                 <label for="age">Age: </label>
                 <input type="number" name="age" id="age">
@@ -26,16 +32,18 @@
                 <input type="password" name="password" id="password">
                 <label for="passwordconf">Confirm Password: </label>
                 <input type="password" name="passwordconf" id="passwordconf">
-                <br>
-                <p>*Optional.</p>
+                <p>By checking the box you acknowledge that you have reviewed and agree to the <br>
+                    <a href=" {% url 'privacy-policy' %} ">Terms of Service</a> and <a href=" {% url 'privacy-policy' %} ">Privacy Policy</a>.
+                </p>
+                <input type="checkbox" name="terms" id="terms">
+
                 <input type="button" value="Sign Up">
             </form>
             
-            <p>By creating your account you agree to the <br> 
-                <a href="#">Terms and conditions</a> and <a href="#">Privacy Policy</a>
-            </p>
+            <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+
     </div>
 
-    <p class="login-p">Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+    
 
 {% endblock content %}

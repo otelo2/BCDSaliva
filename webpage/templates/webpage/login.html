@@ -1,6 +1,12 @@
 {% extends 'webpage/base.html' %}
+{% load static %}
 
 {% block title %}Log In{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'webpage/style.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/login.css' %}">
+{% endblock css_files %}
 
 {% block content %}
     {% comment "" %} Login Area {% endcomment %}
@@ -16,7 +22,9 @@
             <input type="button" value="Log In">
         </form>
         
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here.</a></p>
+
     </div>
 
-    <p class="login-p">Don't have an account? <a href="{% url 'signup' %}">Sign up here.</a></p>
+    
 {% endblock content %}

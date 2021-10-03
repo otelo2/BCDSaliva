@@ -1,0 +1,25 @@
+
+/*------Sign-Up------*/
+.signup-box{
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0rem;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 0rem;
+    border: 1px solid #ccc;
+    border-top: none;
+
+}
+
+.signup-box p{
+    text-align: center;
+    color: black;
+    padding: 0.5rem;
+    font-size: medium;
+}
+
+.signup-box p a{
+    color: #3083bb;
+}

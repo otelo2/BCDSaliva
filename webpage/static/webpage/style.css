@@ -176,25 +176,13 @@ footer span {
     animation-duration: 0.7s;
 }
 
-/*------Sign-Up------*/
-.signup-box{
-    display: block;
-    width: auto;
-    height: auto;
-    margin: 0rem;
-    padding: 0.5rem;
-    background-color: #ffffff;
-    border-radius: 0rem;
-    border: 1px solid #ccc;
-    border-top: none;
-
-}
-
+/* Content */
 h1{
     text-align: center;
-    padding-top: 0rem;
+    padding-top: 0;
     margin: 0;
 }
+
 h4{
     text-align: center;
 }
@@ -208,113 +196,31 @@ form label{
     margin-top: 1rem;
     font-size: medium;
 }
-
 form input{
     width: 100%;
-    padding: 0.1rem;
     border: none;
     border: 1px solid gray;
     border-radius: 0.3rem;
     outline: none;
+}
+form input[type="button"]{
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border: none;
+    background-color: #3083bb;
+    color: white;
+    font-size: large;
+    
 }
 form input[type="radio"]{
     width: 15%;
     text-align: center;
     margin: none;
 }
-input[type="button"]{
-    width: 100%;
-    height: auto;
-    margin-top: auto;
-    border: none;
-    background-color: #3083bb;
-    color: white;
-    font-size: large;
-}
 
-.signup-box p{
-    text-align: center;
-    padding: 0.5rem;
-    font-size: small;
-}
 
-.login-p{
-    text-align: center;
-    color: black;
-    font-size: medium;
-    margin-top: -0.5rem;
-}
-
-.login-p a{
-    color: #3083bb;
-}
-
-/*------Log-In------*/
-.login-box{
-    width: auto;
-    height: auto;
-    margin: 0rem;
-    padding: 0.5rem;
-    background-color: #ffffff;
-    border-radius: 0rem;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-h1{
-    text-align: center;
-    padding-top: 0rem;
-    margin: 0;
-}
-h4{
-    text-align: center;
-}
-
-form{
-    width: 50%;
-    margin: auto;
-}
-form label{
-    display: flex;
-    margin-top: 1rem;
-    font-size: medium;
-}
-
-form input{
-    width: 100%;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 0.3rem;
-    outline: none;
-}
-
-input[type="button"]{
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: none;
-    background-color: #3083bb;
-    color: white;
-    font-size: large;
-}
-
-.signup-box p{
-    text-align: center;
-    padding: 0.5rem;
-    font-size: small;
-}
-
-.login-p{
-    text-align: center;
-    color: black;
-    font-size: medium;
-    margin-top: -0.5rem;
-}
-
-.login-p a{
-    color: #3083bb;
-}
+/* Keyframes */
 
 @-webkit-keyframes fade {
     from {
