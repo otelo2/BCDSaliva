@@ -1,6 +1,9 @@
 {% extends 'webpage/base.html' %}
+{% load static %}
 
 {% block title %}Biomarker Comparison{% endblock title %}
+
+{% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Biomarker tab {% endcomment %}
