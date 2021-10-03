@@ -89,3 +89,35 @@ Se encuentra una lista que contiene diccionarios con cada una de la información
 la clase SiteView, la cual renderiza el `index.html` utilizando el modelo UserFile de `models.py`, y en caso
 de que la form se suba correctamente vuelve a cargar la página (Ésto puede ser cambiado), por último
 pasa a la página a renderizar una lista con el contexto que se necesita, en este caso la lista de miembros y sus datos.
+
+# Configurar con base de datos MySQL
+
+Fuente: https://www.youtube.com/watch?v=PpXeAtgyijk
+
+## Dependencias:
+
+Tenemos que instalar la dependencia de python "mysqlclient"
+`pip3 install mysqlclient`
+
+## Crear la base de datos:
+
+Ehhh lo añadiré después... En verdad tengo que añadir cómo poner CREATE DATABASE nombre-de-la-BD; ?
+
+## Configurar conección en Django
+
+En /BCDSaliva/settings.py encontrar el diccionario DATABASES y reemplazarlo por la siguiente configuración
+
+```python
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "nombre-de-la-BD",
+        "USER": "root",
+        "PASSWORD": "",
+        "PORT": "3306"
+    }
+}
+```
+
+IMPORTANTE: Estamos de acuerdo que dejar los usuarios por defecto es terrible? Ok, qué bueno que estamos en las mismas. Para desarrollo no es taaaan terrible, pero en producción por favor POR FAVOR no hagas eso; a partir de ahora me deslindo de la inevitibilidad de que hackeen el servidor de la BD si no checas la seguridad de la misma :) Saludos.
+
