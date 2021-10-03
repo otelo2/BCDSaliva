@@ -96,3 +96,7 @@ class SignupView(TemplateView):
 class DonateView(TemplateView):
     template_name = "webpage/donate.html"
     
+
+class PrivacyPolicyView(TemplateView):
+    template_name = "webpage/privacy_policy.html"
+    
