@@ -65,6 +65,8 @@ header a:hover{
     border: 1px solid #ccc;
     border-top: none;
     transition: 0.3s;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .tab-content p {
