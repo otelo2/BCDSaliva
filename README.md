@@ -111,9 +111,10 @@ En /BCDSaliva/settings.py encontrar el diccionario DATABASES y reemplazarlo por 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "nombre-de-la-BD",
+        "NAME": "bcdsaliva",
         "USER": "root",
-        "PASSWORD": "",
+        "PASSWORD": "password",
+        "HOST": "localhost",
         "PORT": "3306"
     }
 }
