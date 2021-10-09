@@ -122,3 +122,15 @@ DATABASES = {
 
 IMPORTANTE: Estamos de acuerdo que dejar los usuarios por defecto es terrible? Ok, qué bueno que estamos en las mismas. Para desarrollo no es taaaan terrible, pero en producción por favor POR FAVOR no hagas eso; a partir de ahora me deslindo de la inevitibilidad de que hackeen el servidor de la BD si no checas la seguridad de la misma :) Saludos.
 
+# Área de administración
+
+## Crear super usuario
+
+```python
+python3 manage.py createsuperuser
+```
+Entras username, email, password, confirmas password y ya tenes el superusuario, usando para acceder a la zona de administración.
+
+El Email puede ser vacio.
+
+Entrando a <url de la página>/admin te da acceso a la zona de administración. Ahí introduces el superusuario que creaste y ya tienes acceso a la zona.
