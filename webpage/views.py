@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from .models import UserFile
-from .forms import CreateUserForm
+from .forms import CreatePatientForm, CreateUserForm
 
 members = [
     {
@@ -96,17 +96,28 @@ def loginView(request):
     
 # TODO: Make into a class-based view
 def signupView(request):
-    form = CreateUserForm()
-    
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            name = form.cleaned_data.get("name")
-            messages.success(request, "Account for " + name + " created correctly")
+        user_form = CreateUserForm(request.POST)
+        patient_form = CreatePatientForm(request.POST)
+        if user_form.is_valid() and patient_form.is_valid():
+            new_user = user_form.save()
+            #https://stackoverflow.com/questions/41649976/django-exception-value-1048-column-user-id-cannot-be-null
+            #new_patient = patient_form.save()
+            new_patient = patient_form.save(commit=False)
+            if new_patient.user_id is None:
+                new_patient.user_id = new_user.id
+            new_patient.save()
+            username = user_form.cleaned_data.get("username")
+            print(patient_form.cleaned_data.get("date_of_birth"))
+            messages.success(request, "Account for " + username + " created correctly")
             return redirect("login")
+        
+    else:
+        user_form = CreateUserForm()
+        patient_form = CreatePatientForm()
     
-    context = {"form":form}
+    context = {"user_form":user_form, "patient_form":patient_form}
+    
     return render(request, "webpage/signup.html", context)
     
 

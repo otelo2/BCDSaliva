@@ -16,13 +16,23 @@
             <form method="POST" action="">
                 {% csrf_token %}
 
-                {% for field in form %}
+                <label for="">{{user_form.username.label}}</label>
+                {{user_form.username}}
+
+                {% for field in patient_form %}
                     <label for="">{{field.label}}</label>
                     {{field}}
                 {% endfor %}
+
+                <label for="">{{user_form.email.label}}</label>
+                {{user_form.email}}
+                <label for="">{{user_form.password1.label}}</label>
+                {{user_form.password1}}
+                <label for="">{{user_form.password2.label}}</label>
+                {{user_form.password2}}
                 
                 <input type="checkbox" name="checkbox" id="checkbox">
-                <label class="checkboxLabel" for="terms">By checking the box you acknowledge that you have reviewed and agree to the <br>
+                <label class="checkboxLabel" for="terms" required>By checking the box you acknowledge that you have reviewed and agree to the <br>
                     <a href=" {% url 'privacy-policy' %} " target="_blank">Terms of Service</a> and <a href=" {% url 'privacy-policy' %} " target="_blank">Privacy Policy</a> (Links will open in a new tab).
                 </label>
 
@@ -30,7 +40,8 @@
 
             </form>
 
-            {{form.errors}}
+            {{patient_form.errors}}
+            {{user_form.errors}}
 
             {% for message in messages %}
                 <p>{{message}}</p>

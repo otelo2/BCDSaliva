@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields
 
+from .models import PatientProfile
 
 class UploadFileForm(forms.Form):
     uploaded_file = forms.FileField()
@@ -29,20 +30,24 @@ MONTHLY_INCOME_CHOICES = (
 
 class DateInput(forms.DateInput):
     input_type = "date"
-class CreateUserForm(UserCreationForm):
+class CreatePatientForm(forms.ModelForm):
     name = forms.CharField()
     surname_1 = forms.CharField()
     surname_2 = forms.CharField(required=False, label="Surname 2 (Optional)")
     date_of_birth = forms.DateField(widget=DateInput)
-    gender = forms.ChoiceField(choices=GENDER_CHOICES) #Wont work
+    gender = forms.ChoiceField(choices=GENDER_CHOICES)
     level_of_education = forms.ChoiceField(choices=LEVEL_OF_EDUCATION_CHOICES)
     country = forms.CharField()
     state = forms.CharField()
     ocupation = forms.CharField()
     monthly_income = forms.ChoiceField(choices=MONTHLY_INCOME_CHOICES)
-    email = forms.EmailField()
     class Meta:
-        model = User
+        model = PatientProfile
         fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
                   "level_of_education", "country", "state", "ocupation", \
-                  "monthly_income", "email", "password1", "password2"]
+                  "monthly_income",]
+        
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ["username", "email", "password1", "password2"]
