@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 
 from .models import UserFile
 from .forms import CreatePatientForm, CreateUserForm
@@ -91,8 +92,24 @@ class AboutUsView(TemplateView):
     
 # TODO: Make into a class-based view (if possible)
 def loginView(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect("patients")
+        else: 
+            messages.info(request, "Username or password is incorrect")
+    
     context = {}
     return render(request, "webpage/login.html", context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect("login")
     
 # TODO: Make into a class-based view
 def signupView(request):

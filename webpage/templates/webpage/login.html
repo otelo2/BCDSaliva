@@ -14,17 +14,20 @@
         <h1>Log In</h1>
         <h4>If you already have an account, please log in to upload your biomarker file and access other data.</h4>
 
-        <form action="">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="username" name="username" id="username" required>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" required>
-            <input type="button" value="Log In">
+            <input type="submit" value="Log In">
         </form>
         
         {% for message in messages %}
             <h5>{{message}}</h5>
         {% endfor %}
+
+
 
         <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here.</a></p>
 

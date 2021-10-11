@@ -22,10 +22,10 @@
     color: #3083bb;
 }
 
-.login-box h5{
+h5{
     background-color: gray;
-    color: green;
+    color: rgb(229, 255, 0);
     font-size: medium;
-    margin: 0.5rem;
+    margin: 1rem;
     text-align: center;
 }
