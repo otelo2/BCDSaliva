@@ -108,7 +108,6 @@ def signupView(request):
                 new_patient.user_id = new_user.id
             new_patient.save()
             username = user_form.cleaned_data.get("username")
-            print(patient_form.cleaned_data.get("date_of_birth"))
             messages.success(request, "Account for " + username + " created correctly")
             return redirect("login")
         

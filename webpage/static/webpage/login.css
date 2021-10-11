@@ -21,3 +21,11 @@
 .login-box p a{
     color: #3083bb;
 }
+
+.login-box h5{
+    background-color: gray;
+    color: green;
+    font-size: medium;
+    margin: 0.5rem;
+    text-align: center;
+}
