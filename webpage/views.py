@@ -1,8 +1,11 @@
 from webpage.models import UserFile
 from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .models import UserFile
+from .forms import CreateUserForm
 
 members = [
     {
@@ -86,11 +89,25 @@ class AboutUsView(TemplateView):
         context["all_members"] = members
         return context
     
-class LoginView(TemplateView):
-    template_name = "webpage/login.html"
+# TODO: Make into a class-based view (if possible)
+def loginView(request):
+    context = {}
+    return render(request, "webpage/login.html", context)
     
-class SignupView(TemplateView):
-    template_name = "webpage/signup.html"
+# TODO: Make into a class-based view
+def signupView(request):
+    form = CreateUserForm()
+    
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            name = form.cleaned_data.get("name")
+            messages.success(request, "Account for " + name + " created correctly")
+            return redirect("login")
+    
+    context = {"form":form}
+    return render(request, "webpage/signup.html", context)
     
 
 class DonateView(TemplateView):

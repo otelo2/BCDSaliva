@@ -13,55 +13,28 @@
     <div class="signup-box" id="Signup">
         <h1>Sign Up</h1>
         <h4>Sign up to upload your biomarker file and access other features</h4>
-            <form action="">
-                <label for="name">Name: </label>
-                <input type="text" name="name" id="name">
-                <label for="surname1">Surname 1: </label>
-                <input type="text" name="surname1" id="surname1">
-                <label for="surname2">Surname 2 (Optional): </label>
-                <input type="text" name="surname2" id="surname2">
-                <label for="dob">Date of birth </label>
-                <input type="date" name="dob" id="dob">
-                <label for="gender">Gender: </label>
-                <input type="radio" name="gender" id="gender" value="Male"> Male
-                <input type="radio" name="gender" id="gender" value="Female"> Female
-                <input type="radio" name="gender" id="gender" value="Other"> Other
-                <label for="escolarity">Level of education:</label>
-                <select name="escolarity" id="escolarity">
-                    <option value="basic">Elementary school</option>
-                    <option value="middle">Highschool</option>
-                    <option value="upper">University</option>
-                    <option value="postgrad">Postgraduate</option>
-                </select>
-                <label for="country">Country:</label>
-                <input type="text" name="country" id="country">
-                <label for="state">State:</label>
-                <input type="text" name="state" id="state">
-                <label for="ocupation">Ocupation:</label>
-                <input type="text" name="ocupation" id="ocupation">
-                <label for="income">Monthly income:</label>
-                <select name="income" id="income">
-                    <option value="poverty">Less than $20,000</option>
-                    <option value="low-income">$20,000 - $44,999</option>
-                    <option value="middle-class">$45,000 - $139,999</option>
-                    <option value="upper-middle-class">$149,000 - $149,999</option>
-                    <option value="high-income">$150,000 - $199,999</option>
-                    <option value="highest-text-brackets">More than $200,000</option>
-                </select>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email">
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password">
-                <label for="passwordconf">Confirm Password: </label>
-                <input type="password" name="passwordconf" id="passwordconf">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <label for="">{{field.label}}</label>
+                    {{field}}
+                {% endfor %}
                 
                 <input type="checkbox" name="checkbox" id="checkbox">
                 <label class="checkboxLabel" for="terms">By checking the box you acknowledge that you have reviewed and agree to the <br>
                     <a href=" {% url 'privacy-policy' %} " target="_blank">Terms of Service</a> and <a href=" {% url 'privacy-policy' %} " target="_blank">Privacy Policy</a> (Links will open in a new tab).
                 </label>
 
-                <input type="button" value="Sign Up">
+                <input type="submit" value="Sign Up">
+
             </form>
+
+            {{form.errors}}
+
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
             
             <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
 
