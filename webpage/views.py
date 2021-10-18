@@ -4,8 +4,10 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.views import generic
+from django.urls import reverse_lazy
 
-from .models import UserFile
+from .models import PatientProfile, UserFile
 from .forms import CreatePatientForm, CreateUserForm
 
 members = [
@@ -144,3 +146,10 @@ class DonateView(TemplateView):
 class PrivacyPolicyView(TemplateView):
     template_name = "webpage/privacy_policy.html"
     
+class EditProfilePageView(generic.UpdateView):
+    model = PatientProfile
+    template_name = "webpage/edit_profile_page.html"
+    fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
+              "level_of_education", "country", "state", "occupation", \
+              "monthly_income", "phone_number" ]
+    success_url = reverse_lazy("home")

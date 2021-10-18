@@ -1,0 +1,35 @@
+{% extends 'webpage/base.html' %}
+{% load static %}
+
+{% block title %}Edit profile{% endblock title %}
+
+{% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.id == patientprofile.user.id %}
+        {% comment %} Biomarker tab {% endcomment %}
+        <div class="tab-content" id="EditProfile">
+            <h1>Edit profile</h1>
+            <div>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Update profile page</button>
+            </form>
+            </div>
+        </div>
+
+        {% else %}
+
+        <h1>You are not the correct user to edit this patients details</h1>
+
+        {% endif %}
+
+    {% else %}
+
+    <h1>Please Log in to edit your profile</h1>
+
+    {% endif %}
+
+{% endblock content %}
