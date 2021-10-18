@@ -15,13 +15,9 @@ class PatientProfile(models.Model):
     level_of_education = models.CharField(max_length=9)
     country = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    ocupation = models.CharField(max_length=50)
+    occupation = models.CharField(max_length=50)
     monthly_income = models.CharField(max_length=21)
-
-#@receiver(post_save, sender=User)
-#def create_patient_profile(sender, instance, created, **kwargs):
-#    if created: 
-#        PatientProfile.objects.create(user=instance)
+    phone_number = models.CharField(max_length=15)
 
 class UserFile(models.Model):
     # Store the path of the file in the db and the file will be on the hard drive

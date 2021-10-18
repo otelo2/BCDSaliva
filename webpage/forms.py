@@ -39,13 +39,14 @@ class CreatePatientForm(forms.ModelForm):
     level_of_education = forms.ChoiceField(choices=LEVEL_OF_EDUCATION_CHOICES)
     country = forms.CharField()
     state = forms.CharField()
-    ocupation = forms.CharField()
+    occupation = forms.CharField()
     monthly_income = forms.ChoiceField(choices=MONTHLY_INCOME_CHOICES)
+    phone_number = forms.DecimalField()
     class Meta:
         model = PatientProfile
         fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
-                  "level_of_education", "country", "state", "ocupation", \
-                  "monthly_income",]
+                  "level_of_education", "country", "state", "occupation", \
+                  "monthly_income", "phone_number"]
         
 class CreateUserForm(UserCreationForm):
     class Meta:
