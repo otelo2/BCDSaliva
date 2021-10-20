@@ -252,7 +252,7 @@ footer span {
 
 .active,
 .dot:hover {
-    background-color: #717171;
+    background-color: #ccc;
 }
 
 .fade {

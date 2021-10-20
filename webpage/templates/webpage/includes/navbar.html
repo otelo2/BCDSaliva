@@ -1,9 +1,9 @@
 <ul class="horizontal-navbar">
-    <li><a class="active" href=" {% url "home" %} ">Home</a></li>
-    <li><a href=" {% url "biomarker-comparison" %} ">Biomarker Comparison</a></li>
-    <li><a href=" {% url "patients" %} ">Patients</a></li>
-    <li><a href=" {% url "about-us" %} ">About Us</a></li>
-    <li><a href=" {% url "donate" %} ">Donate</a></li>
+    <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "home" %} ">Home</a></li>
+    <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "biomarker-comparison" %} ">Biomarker Comparison</a></li>
+    <li {% if request.resolver_match.url_name == 'patients' %}class="active"{% endif %}><a href=" {% url "patients" %} ">Patients</a></li>
+    <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "about-us" %} ">About Us</a></li>
+    <li {% if request.resolver_match.url_name == 'donate' %}class="active"{% endif %}><a href=" {% url "donate" %} ">Donate</a></li>
 
     {% if user.is_authenticated %}
 
@@ -22,7 +22,7 @@
     {% else %}
 
         <li style="float: right; background-color: #225F87"><a style="color: white;" href=" {% url "signup" %} ">Sign Up</a></li>
-        <li style="float: right"><a href=" {% url "login" %} ">Log In</a></li>
+        <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %} style="float: right"><a href=" {% url "login" %} ">Log In</a></li>
 
     {% endif %}
 </ul>
