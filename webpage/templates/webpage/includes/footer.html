@@ -6,6 +6,15 @@
         <a href="https://www.qmul.ac.uk/" target="_blank" rel="noopener noreferrer">Queen Mary</a>
     </nav>
     <span>Breast Cancer Detection through Saliva</span>
-    <span>Hello, {{request.user}}</span>
-    <span><a href="{% url 'logout' %}">Logout</a></span>
+    
+
+    {% if user.is_authenticated %}
+        <span>Hello, {{request.user}}</span>
+        <span> {{request.user.patientprofile.name}} </span>
+        <span> <a href=" {% url 'show-profile' user.patientprofile.id %} ">Profile Page</a> </span>
+        <span> <a href=" {% url 'edit-profile' user.patientprofile.id %} ">Edit Profile</a> </span>
+        <span><a href="{% url 'logout' %}">Logout</a></span>
+    {% endif %}
+
+    
 </footer>

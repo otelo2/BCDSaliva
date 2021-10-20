@@ -1,7 +1,8 @@
+from django.views.generic.detail import DetailView
 from webpage.models import UserFile
 from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.views import generic
@@ -146,10 +147,26 @@ class DonateView(TemplateView):
 class PrivacyPolicyView(TemplateView):
     template_name = "webpage/privacy_policy.html"
     
+    
+class ShowProfilePageView(DetailView):
+    model = PatientProfile
+    template_name = "webpage/user_profile.html"
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
+        page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
+        context["page_user"] = page_user
+        return context
 class EditProfilePageView(generic.UpdateView):
     model = PatientProfile
     template_name = "webpage/edit_profile_page.html"
     fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
               "level_of_education", "country", "state", "occupation", \
               "monthly_income", "phone_number" ]
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("patients")
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(EditProfilePageView, self).get_context_data(*args, **kwargs)
+        page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
+        context["page_user"] = page_user
+        return context

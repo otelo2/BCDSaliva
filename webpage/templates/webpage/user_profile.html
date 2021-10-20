@@ -1,0 +1,44 @@
+{% extends 'webpage/base.html' %}
+{% load static %}
+
+{% block title %}User Profile{% endblock title %}
+
+{% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
+
+{% block content %}
+    {% comment %} Biomarker tab {% endcomment %}
+    <div class="tab-content" id="UserProfile">
+        {% if user.is_authenticated %}
+            {% if user.id == patientprofile.user.id %}
+                <h1>User Profile</h1>
+                
+                <p>Username: {{page_user.user}}</p>
+                <p>Name: {{page_user.name}}</p>
+                <p>Surname 1: {{page_user.surname_1}}</p>
+                
+                {% if page_user.surname_2 %}
+                    <p>Surname 2: {{page_user.surname_2}}</p>
+                {% endif %}
+                
+                <p>Date of birth: {{page_user.date_of_birth}}</p>
+                <p>Gender: {{page_user.gender}}</p>
+                <p>Level of education: {{page_user.level_of_education}}</p>
+                <p>Country: {{page_user.country}}</p>
+                <p>State: {{page_user.state}}</p>
+                <p>Occupation: {{page_user.occupation}}</p>
+                <p>Monthly income: {{page_user.monthly_income}}</p>
+                <p>Phone number: {{page_user.phone_number}}</p>
+            
+            {% else %}
+
+            <h1>You are not the correct user for this profile</h1>
+
+            {% endif %}
+
+        {% else %}
+
+        <h1>You have to log in to see this page</h1>
+
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -13,5 +13,6 @@ urlpatterns = [
     path("signup", views.signupView, name="signup"),
     path("donate", views.DonateView.as_view(), name="donate"),
     path("privacy-policy", views.PrivacyPolicyView.as_view(), name="privacy-policy"),
+    path("<int:pk>/show-profile", views.ShowProfilePageView.as_view(), name="show-profile"),
     path("<int:pk>/edit-profile", views.EditProfilePageView.as_view(), name="edit-profile"),
 ]
