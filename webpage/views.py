@@ -88,8 +88,8 @@ class PatientsView(DetailView):
     model = PatientProfile
     template_name = "webpage/patients.html"
     
-    def get_context_data(self, *args, **kwargs):
-        context = super(PatientsView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(PatientsView, self).get_context_data(**kwargs)
         page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
         context["page_user"] = page_user
         return context
@@ -157,13 +157,12 @@ class DonateView(TemplateView):
 class PrivacyPolicyView(TemplateView):
     template_name = "webpage/privacy_policy.html"
     
-    
 class ShowProfilePageView(DetailView):
     model = PatientProfile
     template_name = "webpage/user_profile.html"
     
-    def get_context_data(self, *args, **kwargs):
-        context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(ShowProfilePageView, self).get_context_data(**kwargs)
         page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
         context["page_user"] = page_user
         return context
@@ -175,8 +174,8 @@ class EditProfilePageView(generic.UpdateView):
               "monthly_income", "phone_number" ]
     success_url = reverse_lazy("patients")
     
-    def get_context_data(self, *args, **kwargs):
-        context = super(EditProfilePageView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(EditProfilePageView, self).get_context_data(**kwargs)
         page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
         context["page_user"] = page_user
         return context
