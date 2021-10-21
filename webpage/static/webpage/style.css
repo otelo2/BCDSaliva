@@ -312,6 +312,16 @@ form input[type="checkbox"]{
     transform: scale(1.5);
 }
 
+table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+td { 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
+}
 
 /* Keyframes */
 /*

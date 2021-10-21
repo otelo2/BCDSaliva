@@ -8,12 +8,61 @@
 {% block content %}
     {% comment %} Patients tab {% endcomment %}
     <div class="tab-content" id="Patients">
-        <h2>Patients</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ratione, nobis aliquam impedit
-            voluptatum laborum ipsa reprehenderit aliquid architecto fugiat praesentium. Facilis ipsam iure
-            officiis. Facilis iusto suscipit reiciendis nesciunt.</p>
-        <p>Login area</p>
-        <p>To upload your biomarkers please log in</p>
+        <h1>Patients</h1>
+
+        {% if user.is_authenticated %}
+            {% if user.id == patientprofile.user.id %}
+
+                <table>
+                    <tr>
+                        <td>Patient: <b>{{page_user.name}} {{page_user.surname_1}} {{page_user.surname_2}}</b> </td>
+                        <td>Medic: <b>To whom it may concern</b> </td>
+                    </tr>
+                    <tr>
+                        <td>Gender: {{page_user.gender}} &emsp; Age: {{page_user.date_of_birth}}</td>
+                        <td>Date of reception: XXXXX</td>
+                    </tr>
+                    <tr>
+                        <td>GP-GENERAL PUBLIC</td>
+                        <td>Date of analysis: XXXXX</td>
+                    </tr>
+                    <tr>
+                        <td>Code: <b>XXXXXXX</b>, &ensp; Phone number: {{page_user.phone_number}} </td>
+                        <td>Date of print: XXXXXXX</td>
+                    </tr>
+                    <tr>
+                        <td>Origin: {{page_user.state}}</td>
+                    </tr>
+                </table>
+
+                <hr>
+
+                <table>
+                    <tr>
+                        <th>Exam</th>
+                        <th>Result</th>
+                        <th>Units</th>
+                        <th>Reference value</th>
+                    </tr>
+                    <tr>
+                        <td>INSULINE</td>
+                        <td>5.0</td>
+                        <td>µU/mL</td>
+                        <td>2.60 - 24.90</td>
+                    </tr>
+                </table>
+            
+            {% else %}
+
+            <p>You cannot access another patients information</p>
+
+            {% endif %}
+
+        {% else %}
+
+        <p>This section includes your information as a patient. To view this information, please <a href="login">Log In</a> or <a href="signup">Create an account</a>.</p>
+
+        {% endif %}
 
     </div>
 {% endblock content %}

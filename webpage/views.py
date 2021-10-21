@@ -81,8 +81,18 @@ class IndexView(TemplateView):
 class BiomarkerComparisonView(TemplateView):
     template_name = "webpage/biomarker_comparison.html"
     
-class PatientsView(TemplateView):
+class PatientsNoLoginView(TemplateView):
+    template_name = "webpage/patients_nologin.html"
+    
+class PatientsView(DetailView):
+    model = PatientProfile
     template_name = "webpage/patients.html"
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(PatientsView, self).get_context_data(*args, **kwargs)
+        page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
+        context["page_user"] = page_user
+        return context
     
 class AboutUsView(TemplateView):
     template_name = "webpage/about_us.html"
@@ -103,7 +113,7 @@ def loginView(request):
         
         if user is not None:
             login(request, user)
-            return redirect("patients")
+            return redirect("home")
         else: 
             messages.info(request, "Username or password is incorrect")
     
