@@ -114,8 +114,8 @@ def loginView(request):
         if user is not None:
             login(request, user)
             return redirect("home")
-        else: 
-            messages.info(request, "Username or password is incorrect")
+        
+        messages.info(request, "Username or password is incorrect")
     
     context = {}
     return render(request, "webpage/login.html", context)
