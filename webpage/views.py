@@ -81,15 +81,15 @@ class IndexView(TemplateView):
 class BiomarkerComparisonView(TemplateView):
     template_name = "webpage/biomarker_comparison.html"
     
-class PatientsNoLoginView(TemplateView):
+class MedicalInformationNoLoginView(TemplateView):
     template_name = "webpage/patients_nologin.html"
     
-class PatientsView(DetailView):
+class MedicalInformationView(DetailView):
     model = PatientProfile
     template_name = "webpage/patients.html"
     
     def get_context_data(self, **kwargs):
-        context = super(PatientsView, self).get_context_data(**kwargs)
+        context = super(MedicalInformationView, self).get_context_data(**kwargs)
         page_user = get_object_or_404(PatientProfile, id=self.kwargs["pk"])
         context["page_user"] = page_user
         return context
@@ -172,7 +172,7 @@ class EditProfilePageView(generic.UpdateView):
     fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
               "level_of_education", "country", "state", "occupation", \
               "monthly_income", "phone_number" ]
-    success_url = reverse_lazy("patients")
+    success_url = reverse_lazy("home")
     
     def get_context_data(self, **kwargs):
         context = super(EditProfilePageView, self).get_context_data(**kwargs)

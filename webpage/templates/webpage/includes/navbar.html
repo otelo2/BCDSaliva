@@ -2,9 +2,9 @@
     <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "home" %} ">Home</a></li>
     <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "biomarker-comparison" %} ">Biomarker Comparison</a></li>
     {% if user.is_authenticated %}
-        <li {% if request.resolver_match.url_name == 'patients' %}class="active"{% endif %}><a href=" {% url "patients" user.patientprofile.id %} ">Patients</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information' %}class="active"{% endif %}><a href=" {% url "medical-information" user.patientprofile.id %} ">Medical Information</a></li>
     {% else %}
-        <li {% if request.resolver_match.url_name == 'patients' %}class="active"{% endif %}><a href=" {% url "patients-nologin"  %} ">Patients</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information-nologin' %}class="active"{% endif %}><a href=" {% url "medical-information-nologin"  %} ">Medical Information</a></li>
     {% endif %}
     
     <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "about-us" %} ">About Us</a></li>

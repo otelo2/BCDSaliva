@@ -1,16 +1,16 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
 
-{% block title %}Patients{% endblock title %}
+{% block title %}Medical Information{% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Patients tab {% endcomment %}
     <div class="tab-content" id="Patients">
-        <h1>Patients</h1>
+        <h1>Medical Information</h1>
 
-            <p>This section includes your information as a patient. To view this information, please <a href="login">Log In</a> or <a href="signup">Create an account</a>.</p>
+            <p>This section includes your medical information. To view this information, please <a href="login">Log In</a> or <a href="signup">Create an account</a>.</p>
 
     </div>
 {% endblock content %}
