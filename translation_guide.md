@@ -92,3 +92,45 @@ urlpatterns += i18n_patterns(
 Ahora en `/webpage/urls.py` se añade la linea `app_name = 'webpage'`
 
 Si se te rompe todo y dice algo que el reverse falló, a todos tus urls vas a tener que cambiarlas por `{% url 'webpage:show-profile'`, nota que "webpage" es el namespace que asignamos anteriormente.
+
+# Instalación de Rosetta
+
+Rosetta es un modulo para crear las traducciones más facilmente. Instálalo usando `pip3 install django-rosetta`
+
+## Añadir Rosetta al proyecto
+
+En el archivo /BCDSaliva/settings.py
+
+```python
+INSTALLED_APPS = [
+    "webpage",
+    "rosetta",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
+```
+
+En el archivo /BCDSaliva/urls.py
+
+```python
+from django.urls import path, include, re_path
+from django.conf import settings
+...
+if "rosetta" in settings.INSTALLED_APPS:
+    urlpatterns += [
+        re_path(r"^rosetta/", include("rosetta.urls"))
+    ]
+
+```
+
+## Aplicar migraciones
+
+`py manage.py makemigrations` y `py manage.py migrate`
+
+## Acceder a Rosetta
+
+Ahora puedes acceder a la sección de roseta, como si fuera la de admin.
