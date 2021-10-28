@@ -107,6 +107,17 @@ header a:hover{
     margin: 0; /* Important for vertical align on mobile phones */
 }
 
+.dropdown-navbar .dropli-language{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: #F1F1F1;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
 .horizontal-navbar a:hover, .dropdown-navbar:hover .dropli {
     background-color: #3083BB;
 }

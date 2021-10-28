@@ -1,14 +1,16 @@
+{% load i18n %}
+
 <ul class="horizontal-navbar">
-    <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "home" %} ">Home</a></li>
-    <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "biomarker-comparison" %} ">Biomarker Comparison</a></li>
+    <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "webpage:home" %} ">Home</a></li>
+    <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "webpage:biomarker-comparison" %} ">Biomarker Comparison</a></li>
     {% if user.is_authenticated %}
-        <li {% if request.resolver_match.url_name == 'medical-information' %}class="active"{% endif %}><a href=" {% url "medical-information" user.patientprofile.id %} ">Medical Information</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information" user.patientprofile.id %} ">Medical Information</a></li>
     {% else %}
-        <li {% if request.resolver_match.url_name == 'medical-information-nologin' %}class="active"{% endif %}><a href=" {% url "medical-information-nologin"  %} ">Medical Information</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information-nologin' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information-nologin"  %} ">Medical Information</a></li>
     {% endif %}
     
-    <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "about-us" %} ">About Us</a></li>
-    <li {% if request.resolver_match.url_name == 'donate' %}class="active"{% endif %}><a href=" {% url "donate" %} ">Donate</a></li>
+    <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "webpage:about-us" %} ">About Us</a></li>
+    <li {% if request.resolver_match.url_name == 'donate' %}class="active"{% endif %}><a href=" {% url "webpage:donate" %} ">Donate</a></li>
 
     {% if user.is_authenticated %}
 
@@ -17,9 +19,9 @@
             <li class="dropli">{{user.patientprofile.name}}'s Profile</li>
             
             <div class="dropdown-content">
-                <a href=" {% url 'show-profile' user.patientprofile.id %} ">Profile Details</a>
-                <a href=" {% url 'edit-profile' user.patientprofile.id %} ">Edit Profile</a>
-                <a href="{% url 'logout' %}">Logout</a>
+                <a href=" {% url 'webpage:show-profile' user.patientprofile.id %} ">Profile Details</a>
+                <a href=" {% url 'webpage:edit-profile' user.patientprofile.id %} ">Edit Profile</a>
+                <a href="{% url 'webpage:logout' %}">Logout</a>
             </div>
             
         </div>
@@ -27,8 +29,25 @@
     
     {% else %}
 
-        <li style="float: right; background-color: #225F87"><a style="color: white;" href=" {% url "signup" %} ">Sign Up</a></li>
-        <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %} style="float: right"><a href=" {% url "login" %} ">Log In</a></li>
+        <li style="float: right; background-color: #225F87"><a style="color: white;" href=" {% url "webpage:signup" %} ">Sign Up</a></li>
+        <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %} style="float: right"><a href=" {% url "webpage:login" %} ">Log In</a></li>
 
     {% endif %}
+
+    <div class="dropdown-navbar">
+            <li class="dropli-language">{% trans "Language" %}</li>
+            
+            <div class="dropdown-content">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+
+                {% for lang in languages %}
+                    <a href="/{{ lang.code }}/BCDSaliva/">{{ lang.name_local|title }}</a>
+                {% endfor %}
+
+            </div>
+            
+    </div>
+
 </ul>

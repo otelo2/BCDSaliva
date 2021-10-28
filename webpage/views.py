@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.views import generic
 from django.urls import reverse_lazy
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language, activate
 
 from .models import PatientProfile, UserFile
 from .forms import CreatePatientForm, CreateUserForm
@@ -113,16 +115,16 @@ def loginView(request):
         
         if user is not None:
             login(request, user)
-            return redirect("home")
+            return redirect("webpage:home")
         
-        messages.info(request, "Username or password is incorrect")
+        messages.info(request, _("Username or password is incorrect"))
     
     context = {}
     return render(request, "webpage/login.html", context)
 
 def logoutUser(request):
     logout(request)
-    return redirect("login")
+    return redirect("webpage:login")
     
 # TODO: Make into a class-based view
 def signupView(request):
@@ -138,8 +140,8 @@ def signupView(request):
                 new_patient.user_id = new_user.id
             new_patient.save()
             username = user_form.cleaned_data.get("username")
-            messages.success(request, "Account for " + username + " created correctly")
-            return redirect("login")
+            messages.success(request, _("Account for " + username + " created correctly"))
+            return redirect("webpage:login")
         
     else:
         user_form = CreateUserForm()

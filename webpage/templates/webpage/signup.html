@@ -33,7 +33,7 @@
                 
                 <input type="checkbox" name="checkbox" id="checkbox">
                 <label class="checkboxLabel" for="terms" required>By checking the box you acknowledge that you have reviewed and agree to the <br>
-                    <a href=" {% url 'privacy-policy' %} " target="_blank">Terms of Service</a> and <a href=" {% url 'privacy-policy' %} " target="_blank">Privacy Policy</a> (Links will open in a new tab).
+                    <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">Terms of Service</a> and <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">Privacy Policy</a> (Links will open in a new tab).
                 </label>
 
                 <input type="submit" value="Sign Up">
@@ -47,7 +47,7 @@
                 <p>{{message}}</p>
             {% endfor %}
             
-            <p>Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+            <p>Already have an account? <a href="{% url 'webpage:login' %}">Login Here</a></p>
 
     </div>
 
