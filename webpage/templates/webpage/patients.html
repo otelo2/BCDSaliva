@@ -1,14 +1,15 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Medical Information{% endblock title %}
+{% block title %}{% trans "Medical Information" %}{% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Patients tab {% endcomment %}
     <div class="tab-content" id="Patients">
-        <h1>Medical Information</h1>
+        <h1>{% trans "Medical Information" %}</h1>
 
         {% if user.is_authenticated %}
             {% if user.id == patientprofile.user.id %}
@@ -16,23 +17,23 @@
                 <br>
                 <table>
                     <tr>
-                        <td>Patient: <b>{{page_user.name}} {{page_user.surname_1}} {{page_user.surname_2}}</b> </td>
-                        <td>Medic: <b>To whom it may concern</b> </td>
+                        <td>{% trans "Patient: " %} <b>{{page_user.name}} {{page_user.surname_1}} {{page_user.surname_2}}</b> </td>
+                        <td>{% trans "Medic: " %} <b>{% trans "To whom it may concern" %}</b> </td>
                     </tr>
                     <tr>
-                        <td>Gender: {{page_user.gender}} &emsp; Age: {{page_user.date_of_birth}}</td>
-                        <td>Date of reception: XXXXX</td>
+                        <td>{% trans "Gender: " %} {{page_user.gender}} &emsp; {% trans "Age: " %}{{page_user.date_of_birth}}</td>
+                        <td>{% trans "Date of reception" %}: XXXXX</td>
                     </tr>
                     <tr>
-                        <td>GP-GENERAL PUBLIC</td>
-                        <td>Date of analysis: XXXXX</td>
+                        <td>{% trans "GP-GENERAL PUBLIC" %}</td>
+                        <td>{% trans "Date of analysis" %}: XXXXX</td>
                     </tr>
                     <tr>
-                        <td>Code: <b>XXXXXXX</b>, &ensp; Phone number: {{page_user.phone_number}} </td>
-                        <td>Date of print: XXXXXXX</td>
+                        <td>{% trans "Code" %} <b>XXXXXXX</b>, &ensp; {% trans "Phone number" %}: {{page_user.phone_number}} </td>
+                        <td>{% trans "Date of print" %}: XXXXXXX</td>
                     </tr>
                     <tr>
-                        <td>Origin: {{page_user.state}}</td>
+                        <td>{% trans "Origin" %}: {{page_user.state}}</td>
                     </tr>
                 </table>
 

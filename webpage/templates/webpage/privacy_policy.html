@@ -1,14 +1,15 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Privacy Policy{% endblock title %}
+{% block title %}{% trans "Privacy Policy" %}{% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Biomarker tab {% endcomment %}
     <div class="tab-content" id="PrivacyPolicy">
-        <h1>Privacy Policy</h1>
+        <h1>{% trans "Privacy Policy" %}</h1>
         <p>
             Request for authorization of sociodemographic, personal and health data of patients with a diagnosis of cancer in order to compute their biomarkers using saliva.
             We, the undersigned researchers, are writing to you to request your consent and authorization to colect data focused on extracting biomarker data for the detection of cancer using saliva samples.

@@ -47,6 +47,8 @@ Se tiene que definir un nuevo alias para la función gettext(). La convención e
 Ya que seleccionaste algunas cadenas que se deben traducir, hay que crear el archivo donde se realizan las traducciones. En la terminal ejecuta el siguiente comando:
 `py manage.py makemessages --all`. En mi caso se tardó un rato corriendo así que no desesperes. El proceso va a generar unos archivos con extensión ".po" en las carpetas de idioma `/locale/en/LC_MESSAGES` y `/locale/es/LC_MESSAGES`. A partir de ahora ya podrías empezar a traducir todas las cadenas. Se recomienda traducir una o dos para que veas que sí vaya funcionando, pero instalaremos más adelante un paquete para hacer más facil o gráfico el proceso de la traducción.
 
+Si tienes un virtual environment de python, puede dar error. Usa mejor `py manage.py makemessages -l es -i django_virtual_environment`
+
 ## Compilar la traducción
 
 En la terminal correr `py manage.py compilemessages`

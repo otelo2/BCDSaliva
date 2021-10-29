@@ -1,16 +1,17 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Donate{% endblock title %}
+{% block title %}{% trans "Donate" %}{% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Home tab {% endcomment %}
     <div class="tab-content" id="Donate" style="display: block;">
-        <h1>Donate</h1>
-        <h2>You can help further developments on breast cancer detections via saliva by your generous donation</h2>
-        <p>Donate now</p>
+        <h1>{% trans "Donate" %}</h1>
+        <h2>{% trans "You can help further developments on breast cancer detections via saliva by your generous donation" %}</h2>
+        <p>{% trans "Donate now" %}</p>
 
         <form action="">
             <label for="onetime">I would like to make a</label>

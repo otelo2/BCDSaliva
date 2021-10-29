@@ -1,7 +1,8 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Log In{% endblock title %}
+{% block title %}{% trans "Log In" %}{% endblock title %}
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'webpage/style.css' %}">
@@ -11,14 +12,14 @@
 {% block content %}
     {% comment "" %} Login Area {% endcomment %}
     <div class="login-box" id="Login">
-        <h1>Log In</h1>
-        <h4>If you already have an account, please log in to upload your biomarker file and access other data.</h4>
+        <h1>{% trans "Log In" %}</h1>
+        <h4>{% trans "If you already have an account, please log in to upload your biomarker file and access other data." %}</h4>
 
         <form method="POST" action="">
             {% csrf_token %}
-            <label for="username">Username:</label>
+            <label for="username">{% trans "Username:" %}</label>
             <input type="username" name="username" id="username" required>
-            <label for="password">Password:</label>
+            <label for="password">{% trans "Password:" %}</label>
             <input type="password" name="password" id="password" required>
             <input type="submit" value="Log In">
         </form>
@@ -29,7 +30,7 @@
 
 
 
-        <p>Don't have an account? <a href="{% url 'webpage:signup' %}">Sign up here.</a></p>
+        <p>{% trans "Don't have an account? " %}<a href="{% url 'webpage:signup' %}">{% trans "Sign up here." %}</a></p>
 
     </div>
 

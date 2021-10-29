@@ -1,14 +1,15 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Home{% endblock title %}
+{% block title %} {% translate "Home" %} {% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Home tab {% endcomment %}
     <div class="tab-content" id="Home" style="display: block;">
-        <h2>Breast Cancer Detection</h2>
+        <h2>{% trans "Breast Cancer Detection" %}</h2>
         <p>This project aims to develop a non-invasive, cost-effective, lightweight method for breast cancer
             biomarker identification employing saliva samples that can be implemented in rural and isolated
             communities, where access to diagnostic infrastructure might be difficult (~20% of the Mexican and

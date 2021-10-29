@@ -1,14 +1,15 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Biomarker Comparison{% endblock title %}
+{% block title %}{% trans "Biomarker Comparison" %}{% endblock title %}
 
 {% block css_files %}<link rel="stylesheet" href="{% static 'webpage/style.css' %}">{% endblock css_files %}
 
 {% block content %}
     {% comment %} Biomarker tab {% endcomment %}
     <div class="tab-content" id="Biomarker">
-        <h2>Biomarker</h2>
+        <h2>{% trans "Biomarker" %}</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ratione, nobis aliquam impedit
             voluptatum laborum ipsa reprehenderit aliquid architecto fugiat praesentium. Facilis ipsam iure
             officiis. Facilis iusto suscipit reiciendis nesciunt.</p>
@@ -16,7 +17,7 @@
         <form action="/BCDSaliva/" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
-            <button>Upload</button>
+            <button>{% trans "Upload" %}</button>
         </form>
     </div>
 {% endblock content %}

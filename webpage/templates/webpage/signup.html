@@ -1,5 +1,6 @@
 {% extends 'webpage/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Sign Up{% endblock title %}
 
@@ -11,8 +12,8 @@
 {% block content %}
     {% comment "" %} Sign Up Area {% endcomment %}
     <div class="signup-box" id="Signup">
-        <h1>Sign Up</h1>
-        <h4>Sign up to upload your biomarker file and access other features</h4>
+        <h1>{% trans "Sign Up" %}</h1>
+        <h4>{% trans "Sign up to upload your biomarker file and access other features" %}</h4>
             <form method="POST" action="">
                 {% csrf_token %}
 
@@ -32,8 +33,8 @@
                 {{user_form.password2}}
                 
                 <input type="checkbox" name="checkbox" id="checkbox">
-                <label class="checkboxLabel" for="terms" required>By checking the box you acknowledge that you have reviewed and agree to the <br>
-                    <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">Terms of Service</a> and <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">Privacy Policy</a> (Links will open in a new tab).
+                <label class="checkboxLabel" for="terms" required>{% trans "By checking the box you acknowledge that you have reviewed and agree to the " %}<br>
+                    <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">{% trans "Terms of Service" %}</a> {% trans "and" %} <a href=" {% url 'webpage:privacy-policy' %} " target="_blank">{% trans "Privacy Policy" %}</a> ({% trans "Links will open in a new tab" %}).
                 </label>
 
                 <input type="submit" value="Sign Up">
@@ -47,7 +48,7 @@
                 <p>{{message}}</p>
             {% endfor %}
             
-            <p>Already have an account? <a href="{% url 'webpage:login' %}">Login Here</a></p>
+            <p>{% trans "Already have an account?" %} <a href="{% url 'webpage:login' %}">{% trans "Login Here" %}</a></p>
 
     </div>
 
