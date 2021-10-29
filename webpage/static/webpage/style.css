@@ -197,6 +197,15 @@ footer span {
     text-align: center;
 }
 
+.footer-logos img{
+    float: center;
+    width:  auto;
+    height: auto;
+    padding: 0 0.5rem;
+    /*object-fit: cover;*/
+    object-fit:scale-down;
+}
+
 /* Bio-Slider */
 .slideshow-container {
     position: relative;

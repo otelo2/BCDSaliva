@@ -1,16 +1,16 @@
 {% load i18n %}
 
 <ul class="horizontal-navbar">
-    <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "webpage:home" %} ">Home</a></li>
-    <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "webpage:biomarker-comparison" %} ">Biomarker Comparison</a></li>
+    <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "webpage:home" %} ">{% trans "Home" %}</a></li>
+    <li {% if request.resolver_match.url_name == 'biomarker-comparison' %}class="active"{% endif %}><a href=" {% url "webpage:biomarker-comparison" %} ">{% trans "Biomarker Comparison" %}</a></li>
     {% if user.is_authenticated %}
-        <li {% if request.resolver_match.url_name == 'medical-information' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information" user.patientprofile.id %} ">Medical Information</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information" user.patientprofile.id %} ">{% trans "Medical Information" %}</a></li>
     {% else %}
-        <li {% if request.resolver_match.url_name == 'medical-information-nologin' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information-nologin"  %} ">Medical Information</a></li>
+        <li {% if request.resolver_match.url_name == 'medical-information-nologin' %}class="active"{% endif %}><a href=" {% url "webpage:medical-information-nologin"  %} ">{% trans "Medical Information" %}</a></li>
     {% endif %}
     
-    <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "webpage:about-us" %} ">About Us</a></li>
-    <li {% if request.resolver_match.url_name == 'donate' %}class="active"{% endif %}><a href=" {% url "webpage:donate" %} ">Donate</a></li>
+    <li {% if request.resolver_match.url_name == 'about-us' %}class="active"{% endif %}><a href=" {% url "webpage:about-us" %} ">{% trans "About Us" %}</a></li>
+    <li {% if request.resolver_match.url_name == 'donate' %}class="active"{% endif %}><a href=" {% url "webpage:donate" %} ">{% trans "Donate" %}</a></li>
 
     {% if user.is_authenticated %}
 
@@ -19,8 +19,8 @@
             <li class="dropli">{{user.patientprofile.name}}'s Profile</li>
             
             <div class="dropdown-content">
-                <a href=" {% url 'webpage:show-profile' user.patientprofile.id %} ">Profile Details</a>
-                <a href=" {% url 'webpage:edit-profile' user.patientprofile.id %} ">Edit Profile</a>
+                <a href=" {% url 'webpage:show-profile' user.patientprofile.id %} ">{% trans "Profile Details" %}</a>
+                <a href=" {% url 'webpage:edit-profile' user.patientprofile.id %} ">{% trans "Edit Profile" %}</a>
                 <a href="{% url 'webpage:logout' %}">Logout</a>
             </div>
             
@@ -29,8 +29,8 @@
     
     {% else %}
 
-        <li style="float: right; background-color: #225F87"><a style="color: white;" href=" {% url "webpage:signup" %} ">Sign Up</a></li>
-        <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %} style="float: right"><a href=" {% url "webpage:login" %} ">Log In</a></li>
+        <li style="float: right; background-color: #225F87"><a style="color: white;" href=" {% url "webpage:signup" %} ">{% trans "Sign Up" %}</a></li>
+        <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %} style="float: right"><a href=" {% url "webpage:login" %} ">{% trans "Log In" %}</a></li>
 
     {% endif %}
 
