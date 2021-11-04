@@ -41,11 +41,11 @@
 
             </form>
 
-            {{patient_form.errors}}
-            {{user_form.errors}}
+            <h5>{{patient_form.errors}}</h5>
+            <h5>{{user_form.errors}}</h5>
 
             {% for message in messages %}
-                <p>{{message}}</p>
+                <h5>{{message}}</h5>
             {% endfor %}
             
             <p>{% trans "Already have an account?" %} <a href="{% url 'webpage:login' %}">{% trans "Login Here" %}</a></p>
