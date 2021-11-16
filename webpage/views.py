@@ -174,7 +174,7 @@ class EditProfilePageView(generic.UpdateView):
     fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
               "level_of_education", "country", "state", "occupation", \
               "monthly_income", "phone_number" ]
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("webpage:home")
     
     def get_context_data(self, **kwargs):
         context = super(EditProfilePageView, self).get_context_data(**kwargs)

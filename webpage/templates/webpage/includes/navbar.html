@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 
 <ul class="horizontal-navbar">
     <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}><a href=" {% url "webpage:home" %} ">{% trans "Home" %}</a></li>
@@ -38,6 +39,9 @@
             <li class="dropli-language">{% trans "Language" %}</li>
             
             <div class="dropdown-content">
+                <a href="/en/BCDSaliva/"> <img id="langFlag" src="{% static 'webpage/images/Flag_of_the_United_States.svg' %}" alt=""> {% trans "English" %}</a>
+                <a href="/es/BCDSaliva/"> <img id="langFlag" src="{% static 'webpage/images/1280px-Flag_of_Mexico.svg.png' %}" alt=""> {% trans "Spanish" %}</a>
+                {% comment "" %}
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
@@ -45,6 +49,7 @@
                 {% for lang in languages %}
                     <a href="/{{ lang.code }}/BCDSaliva/">{{ lang.name_local|title }}</a>
                 {% endfor %}
+                {% endcomment %}
 
             </div>
             

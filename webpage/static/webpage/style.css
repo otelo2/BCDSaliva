@@ -343,6 +343,13 @@ td {
     word-wrap: break-word;
 }
 
+#langFlag{
+    width: auto;
+    height: 20px;
+    padding: none;
+    object-fit: cover;
+}
+
 /* Keyframes */
 /*
 @-webkit-keyframes fade {
