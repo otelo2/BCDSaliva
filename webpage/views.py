@@ -138,6 +138,7 @@ def signupView(request):
             new_patient = patient_form.save(commit=False)
             if new_patient.user_id is None:
                 new_patient.user_id = new_user.id
+            #new_user.save()
             new_patient.save()
             username = user_form.cleaned_data.get("username")
             messages.success(request, _("Account for " + username + " created correctly"))

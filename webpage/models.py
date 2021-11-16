@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 # Source: https://stackoverflow.com/questions/57918725/how-to-extend-django-usercreationform-model-to-include-phone-number-field
@@ -17,7 +18,7 @@ class PatientProfile(models.Model):
     state = models.CharField(max_length=50)
     occupation = models.CharField(max_length=50)
     monthly_income = models.CharField(max_length=21)
-    phone_number = models.CharField(max_length=15)
+    phone_number = PhoneNumberField()
 
 class UserFile(models.Model):
     # Store the path of the file in the db and the file will be on the hard drive

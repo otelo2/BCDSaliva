@@ -350,6 +350,12 @@ td {
     object-fit: cover;
 }
 
+#donate-button-container{
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 /* Keyframes */
 /*
 @-webkit-keyframes fade {
