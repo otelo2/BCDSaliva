@@ -43,10 +43,7 @@ class CreatePatientForm(forms.ModelForm):
     state = forms.CharField()
     occupation = forms.CharField()
     monthly_income = forms.ChoiceField(choices=MONTHLY_INCOME_CHOICES)
-    phone_number = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget(initial="MX"),
-        max_length=10,
-        )
+    phone_number = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'form-control' , 'autocomplete': 'off','pattern':'\(\d\d\d\)\ \d\d\d\ \-\ \d\d\d\d', 'title':'Phone number must be entered in the format: "(123) 123 - 1234".'}))
     class Meta:
         model = PatientProfile
         fields = ["name", "surname_1", "surname_2", "date_of_birth", "gender", \
