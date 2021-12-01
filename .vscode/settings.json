@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "c:\\Users\\admin\\Documents\\Universidad\\Otoño 2021\\Servicio Social\\Proyecto\\django_virtual_environment\\Scripts\\python.exe",
+    "python.pythonPath": "venv\\Scripts\\python.exe",
     "python.languageServer": "Default",
     "files.associations": {
         "**/*.html": "html",
